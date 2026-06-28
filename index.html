@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IIS CR "July" Election Portal</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+li a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+li a:hover {
+color: white;
+text-decoration: underline;
+}
+
+button a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+button a:hover {
+color: white;
+text-decoration: underline;
+}
+
+body{
+background:#f3f4f6;
+}
+
+header{
+background:#123b78;
+color:white;
+padding:20px 60px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.logo{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+text-align:center;
+}
+
+.logo-circle{
+width:60px;
+height:60px;
+border-radius:50%;
+background:white;
+color:#123b78;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:26px;
+font-weight:bold;
+}
+
+.logo h1{
+font-size:28px;
+}
+
+.logo p{
+font-size:14px;
+opacity:.8;
+}
+
+nav{
+background:white;
+box-shadow:0 2px 8px rgba(0,0,0,.12);
+
+}
+
+nav ul{
+list-style:none;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+padding:0;
+margin:0;
+}
+
+nav li{
+padding:18px 22px;
+cursor:pointer;
+font-weight:bold;
+}
+
+nav li:hover{
+background:#123b78;
+color:white;
+}
+
+.hero{
+background:#eaf1fb;
+padding:60px;
+text-align:center;
+}
+
+.hero h2{
+font-size:42px;
+color:#123b78;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+color:#555;
+}
+
+.notice{
+background:#fff7d6;
+border-left:8px solid orange;
+padding:20px;
+margin:40px auto;
+width:90%;
+font-size:18px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+padding:40px 60px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:8px;
+box-shadow:0 5px 12px rgba(0,0,0,.1);
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#123b78;
+}
+
+.card p{
+line-height:1.6;
+color:#555;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+background:#123b78;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:4px;
+}
+
+button:hover{
+background:#0d2b59;
+}
+
+footer{
+background:#123b78;
+color:white;
+padding:30px;
+text-align:center;
+margin-top:50px;
+}
+
+.disclaimer{
+background:#c62828;
+color:white;
+padding:15px;
+text-align:center;
+font-weight:bold;
+font-size:18px;
+}
+
+.schedule{
+    width:90%;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+.schedule h2{
+    color:#123b78;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.schedule-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.schedule-table th{
+    background:#123b78;
+    color:white;
+    padding:14px;
+    text-align:center;
+}
+
+.schedule-table td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+.schedule-table tbody tr:nth-child(even){
+    background:#f5f7fb;
+}
+
+.schedule-table tbody tr:hover{
+    background:#e9f0fb;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="disclaimer">
+NOT AFFILIATED WITH ANY GOVERNMENT OR ELECTION AUTHORITY
+</div>
+
+<header>
+
+<div class="logo">
+<div class="logo-circle"><img style="border-radius:50%" src="assets/iis_white.jpeg" width="50" height="50"></img></div>
+<div>
+<h1>IIS CR "July" Election Portal</h1>
+<p>Election Cum Information Portal</p>
+</div>
+
+</div>
+
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li> <a href="electoral-roll.html">Electoral Roll</a></li>
+<li><a href="nominations.html">Nominations</a></li>
+<li><a href="epic.html">EPIC Card</a></li>
+<li><a href="vote.html">Vote</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+
+<h2>Welcome to the IIS CR "July" Election Portal</h2>
+
+<p>
+A portal to conduct internal elections for Class Representative of IIS Training batch of 2009, 2024 & 2024.
+</p>
+
+</section>
+
+<div class="notice">
+<center>
+<strong>Notice:</strong> This website is a demonstration project only and does not provide official election information.
+</center>
+</div>
+
+<section class="grid">
+
+<div class="card">
+<h3>Electoral Roll</h3>
+<p>
+View electoral roll and challenge inclusion/exclusion.
+</p>
+
+<button><a href="electoral-roll.html">Check</a></button>
+</div>
+
+<div class="card">
+<h3>Nominations</h3>
+<p>
+Nominate the candidates for "July" CR elections.
+</p>
+
+<button><a href="nominations.html">Nominate</a></button>
+</div>
+
+<div class="card">
+<h3>EPIC Card</h3>
+<p>
+Download your secured EPIC card for free & fair elections.
+</p>
+
+<button><a href="epic.html">Download EPIC</a></button>
+</div>
+
+<div class="card">
+<h3>Vote</h3>
+<p>
+Cast your vote through blockchain based system.
+</p>
+
+<button><a href="vote.html">Vote</a></button>
+</div>
+
+</section>
+
+<section class="schedule">
+
+    <h2>Election Schedule</h2>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th>Stage</th>
+                <th>Date</th>
+                <th>Activity</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Stage 1</td>
+                <td>29 June 2026</td>
+                <td>Notification & Curtain-raiser</td>
+            </tr>
+
+            <tr>
+                <td>Stage 2</td>
+                <td>29 June 2026</td>
+                <td>Last Date for Nominations</td>
+            </tr>
+
+            <tr>
+                <td>Stage 3</td>
+                <td>30 June 2026</td>
+                <td>Polling & Counting</td>
+            </tr>
+
+            <tr>
+                <td>Stage 4</td>
+                <td>01 July 2026</td>
+                <td>Results & Press-conference</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+
+<section class="schedule">
+
+    <h2>Former Class Representatives</h2>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>CR1</th>
+                <th>CR2</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Dec 2025</td>
+                <td>Arushi Babbar</td>
+                <td>Manan Singh</td>
+            </tr>
+
+            <tr>
+                <td>Jan 2026</td>
+                <td>Sandeep Prasad</td>
+                <td>Gangawal Shivraj Rajesh</td>
+            </tr>
+
+            <tr>
+                <td>Feb 2026</td>
+                <td>Alisha Mehrotra</td>
+                <td>Kulye Shrushti Suresh</td>
+            </tr>
+
+            <tr>
+                <td>March 2026</td>
+                <td>M Sureshkumar</td>
+                <td>Anushka Sarkar</td>
+            </tr>
+
+            <tr>
+                <td>April 2026</td>
+                <td>Brinda Randeep Sudan</td>
+                <td>Swati Aggarwal</td>
+            </tr>
+
+            <tr>
+                <td>May 2026</td>
+                <td>Sandeep Sunil</td>
+                <td>Abhishek Kumar</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+</section>
+
+
+<footer>
+
+© IIS CR "July" Election Portal
+
+<br><br>
+
+This website is a demonstration project only and does not provide official election information.
+
+</footer>
+
+</body>
+</html>

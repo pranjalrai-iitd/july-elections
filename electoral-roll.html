@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electoral Roll</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f3f4f6;
+}
+
+header{
+    background:#123b78;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+header h1{
+    margin-bottom:8px;
+}
+
+.container{
+    width:95%;
+    max-width:1300px;
+    margin:35px auto;
+}
+
+.search-box{
+    width:100%;
+    margin-bottom:20px;
+}
+
+.search-box input{
+    width:100%;
+    padding:14px;
+    font-size:17px;
+    border:2px solid #123b78;
+    border-radius:5px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+th{
+    background:#123b78;
+    color:white;
+    padding:14px;
+}
+
+td{
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+tbody tr:nth-child(even){
+    background:#f7f9fc;
+}
+
+tbody tr:hover{
+    background:#e9f0fb;
+}
+
+footer{
+    margin-top:30px;
+    text-align:center;
+    color:#666;
+    padding:20px;
+}
+
+.header-content{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.title{
+    text-align:center;
+}
+
+.home-btn{
+    position:absolute;
+    left:0;
+    text-decoration:none;
+    background:white;
+    color:#123b78;
+    padding:10px 18px;
+    border-radius:5px;
+    font-weight:bold;
+    transition:0.25s;
+}
+
+.home-btn:hover{
+    background:#e6eefb;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-content">
+
+<a href="index.html" class="home-btn">← Home</a>
+
+<div class="title">
+
+<h1>IIS CR "July" - Electoral Roll</h1>
+
+<p>Voter information for IIS CR "July" elections</p>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search by Name, Demo Voter ID, Constituency or Polling Station...">
+
+</div>
+
+<table id="voterTable">
+
+<thead>
+
+<tr>
+<th>S. No.</th>
+<th>Voter ID</th>
+<th>Name</th>
+<th>Gender</th>
+<th>Batch</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr><td>1</td><td>IIS0001</td><td>Shri Abhishek Kumar</td><td>Male</td><td>2009</td></tr>
+
+<tr><td>2</td><td>IIS0002</td><td>Ms. Anushka Sarkar</td><td>Female</td><td>2024</td></tr>
+
+<tr><td>3</td><td>IIS0003</td><td>Ms. Arushi Babbar</td><td>Female</td><td>2024</td></tr>
+
+<tr><td>4</td><td>IIS0004</td><td>Shri Manan Singh</td><td>Male</td><td>2024</td></tr>
+
+<tr><td>5</td><td>IIS0005</td><td>Ms. Alish Mehrotra</td><td>Female</td><td>2024</td></tr>
+
+<tr><td>6</td><td>IIS0006</td><td>Shri Melwin James</td><td>Male</td><td>2024</td></tr>
+
+<tr><td>7</td><td>IIS0007</td><td>Shri Pranjal Rai</td><td>Male</td><td>2024</td></tr>
+
+<tr><td>8</td><td>IIS0008</td><td>Shri Labh Jain</td><td>Male</td><td>2024</td></tr>
+
+<tr><td>9</td><td>IIS0009</td><td>Shri Animish Vaze</td><td>Male</td><td>2024</td></tr>
+
+<tr><td>10</td><td>IIS0010</td><td>Shri Akashneel Sarma</td><td>Male</td><td>2024</td></tr>
+
+<tr><td>11</td><td>IIS0011</td><td>Ms. Brinda Randeep Sudan</td><td>Female</td><td>2024</td></tr>
+
+<tr><td>12</td><td>IIS0012</td><td>Shri Kaushal Kataria</td><td>Male</td><td>2025</td></tr>
+
+<tr><td>13</td><td>IIS0013</td><td>Shri Gangawal Shivraj Rajesh</td><td>Male</td><td>2025</td></tr>
+
+<tr><td>14</td><td>IIS0014</td><td>Ms. Kulye Shrushti Suresh</td><td>Female</td><td>2025</td></tr>
+
+<tr><td>15</td><td>IIS0015</td><td>Shri Sandeep Prasad</td><td>Male</td><td>2025</td></tr>
+
+<tr><td>16</td><td>IIS0016</td><td>Shri Sandeep Sunil</td><td>Male</td><td>2025</td></tr>
+
+<tr><td>17</td><td>IIS0017</td><td>Ms. Swati Aggarwal</td><td>Female</td><td>2025</td></tr>
+
+<tr><td>18</td><td>IIS0018</td><td>Shri Mohit Singh</td><td>Male</td><td>2025</td></tr>
+
+<tr><td>19</td><td>IIS0019</td><td>Dr Alah Siby</td><td>Male</td><td>2025</td></tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<footer>
+
+All voter information shown is for internal use.
+
+</footer>
+
+<script>
+
+const searchInput=document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup",function(){
+
+const filter=this.value.toUpperCase();
+
+const rows=document.querySelector("#voterTable tbody").rows;
+
+for(let row of rows){
+
+let found=false;
+
+for(let cell of row.cells){
+
+if(cell.textContent.toUpperCase().indexOf(filter)>-1){
+
+found=true;
+break;
+
+}
+
+}
+
+row.style.display=found?"":"none";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
