@@ -7,20 +7,14 @@ const client = twilio(
 );
 
 
-
 function formatMobile(number){
 
-    // remove spaces, dashes, brackets
     number = number.replace(/\D/g,'');
 
-
-    // if already has country code
     if(number.startsWith("91")){
         return "+" + number;
     }
 
-
-    // Indian 10 digit number
     return "+91" + number;
 
 }
@@ -29,34 +23,23 @@ function formatMobile(number){
 
 async function sendOTP(mobile, otp){
 
-
-    const formattedNumber =
-    formatMobile(mobile);
-
-
-
-    console.log(
-        "Sending OTP to:",
-        formattedNumber
-    );
+    const formattedNumber = formatMobile(mobile);
 
 
     await client.messages.create({
 
         body:
-        `Your OTP for downloading your IIS CR July Election EPIC is ${otp}. Valid for 5 minutes.`,
+        `Your OTP to download your EPIC for IIS CR July Election is ${otp}. Valid for 5 minutes. CEC`,
 
-        from:
-        process.env.TWILIO_PHONE_NUMBER,
+        messagingServiceSid:
+        process.env.TWILIO_MESSAGING_SERVICE_SID,
 
         to:
         formattedNumber
 
     });
 
-
 }
-
 
 
 module.exports = sendOTP;
