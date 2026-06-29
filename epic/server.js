@@ -2,16 +2,13 @@
 const dotenv = require("dotenv");
 const result = dotenv.config();
 
-const adminRoutes = require("./routes/admin");
-app.use("/admin",adminRoutes);
-
 console.log(result);
 
 console.log("DB_USER =", process.env.DB_USER);
 console.log("DB_HOST =", process.env.DB_HOST);
 
 
-// Now load everything else
+// Imports
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
@@ -21,20 +18,27 @@ const session = require("express-session");
 require("./database/db");
 
 
+// Routes
 const authRoutes = require("./routes/auth");
 const pdfRoutes = require("./routes/pdf");
+const adminRoutes = require("./routes/admin");
 
 
+// Create app FIRST
 const app = express();
 
 
+
 app.use(express.json());
+
 
 app.use(express.urlencoded({
     extended: true
 }));
 
 
+
+// Session
 app.use(session({
 
     secret: process.env.SESSION_SECRET,
@@ -51,14 +55,22 @@ app.use(session({
 }));
 
 
+
+// Static files
 app.use(express.static("public"));
 
 
+
+// Routes
 app.use("/api", authRoutes);
+
 app.use("/api", pdfRoutes);
 
+app.use("/admin", adminRoutes);
 
 
+
+// Home page
 app.get("/", (req,res)=>{
 
     res.sendFile(
@@ -69,6 +81,7 @@ app.get("/", (req,res)=>{
 
 
 
+// Start server
 const PORT = process.env.PORT || 3000;
 
 
