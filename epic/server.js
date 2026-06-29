@@ -2,19 +2,9 @@ const authRoutes = require("./routes/auth");
 const express = require("express");
 const path = require("path");
 const pdfRoutes = require("./routes/pdf");
-
-
 const session = require("express-session");
 
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
-
-if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config();
-}
+require("dotenv").config();
 
 
 require("./database/db");
