@@ -1,8 +1,5 @@
 const twilio = require("twilio");
 
-console.log("SID:", process.env.TWILIO_ACCOUNT_SID);
-console.log("MSG SID:", process.env.TWILIO_MESSAGING_SERVICE_SID);
-console.log("TOKEN EXISTS:", !!process.env.TWILIO_AUTH_TOKEN);
 
 const client = twilio(
     process.env.TWILIO_ACCOUNT_SID,
@@ -10,14 +7,19 @@ const client = twilio(
 );
 
 
-function formatMobile(number){
 
-    number = number.replace(/\D/g,'');
+function formatMobile(number) {
 
-    if(number.startsWith("91")){
+    number = String(number).replace(/\D/g, "");
+
+
+    // Already has country code
+    if (number.startsWith("91")) {
         return "+" + number;
     }
 
+
+    // Indian numbers
     return "+91" + number;
 
 }
@@ -26,33 +28,61 @@ function formatMobile(number){
 
 async function sendOTP(mobile, otp) {
 
+
     const formattedNumber = formatMobile(mobile);
+
+
+    console.log("Sending OTP to:", formattedNumber);
+
 
     try {
 
-        await client.messages.create({
 
-            body: `Your OTP to download your EPIC for IIS CR July Election is ${otp}. Valid for 5 minutes. CEC`,
+        const message = await client.messages.create({
 
-            messagingServiceSid: process.env.TWILIO_MESSAGING_SERVICE_SID,
+            body:
+            `Your OTP to download your EPIC for IIS CR July Election is ${otp}. Valid for 5 minutes. CEC`,
 
-            to: formattedNumber
+
+            messagingServiceSid:
+            process.env.TWILIO_MESSAGING_SERVICE_SID,
+
+
+            to:
+            formattedNumber
 
         });
 
+
+
+        console.log("OTP sent. SID:", message.sid);
+
+
+        return true;
+
+
     } catch (err) {
 
+
         console.log("========== TWILIO ERROR ==========");
+
         console.log("Code:", err.code);
+
         console.log("Status:", err.status);
+
         console.log("Message:", err.message);
+
         console.log("More Info:", err.moreInfo);
+
         console.log("==================================");
 
+
         throw err;
+
     }
 
 }
+
 
 
 module.exports = sendOTP;
