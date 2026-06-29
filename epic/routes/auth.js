@@ -30,11 +30,11 @@ router.post("/request-otp", (req,res)=>{
 
 
 
-    const query =
-    `
-    SELECT * FROM voters
-    WHERE name=? AND mobile=?
-    `;
+ const query =
+`
+SELECT * FROM voters
+WHERE name=$1 AND mobile=$2
+`;
 
 
 
@@ -93,7 +93,7 @@ router.post("/request-otp", (req,res)=>{
                 `
                 INSERT INTO otp_codes
                 (mobile,otp,expires_at)
-                VALUES(?,?,?)
+                VALUES($1,$2,$3)
                 `,
 
                 [
@@ -162,8 +162,8 @@ db.query(
 
 `
 SELECT * FROM otp_codes
-WHERE mobile=?
-AND otp=?
+WHERE mobile=$1
+AND otp=$2
 AND expires_at > NOW()
 `,
 
