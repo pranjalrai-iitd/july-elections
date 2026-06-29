@@ -2,6 +2,9 @@
 const dotenv = require("dotenv");
 const result = dotenv.config();
 
+const adminRoutes = require("./routes/admin");
+app.use("/admin",adminRoutes);
+
 console.log(result);
 
 console.log("DB_USER =", process.env.DB_USER);

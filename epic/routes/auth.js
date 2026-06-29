@@ -56,18 +56,36 @@ router.post("/request-otp", async (req, res) => {
         );
 
 
-        await db.query(
-            `
-            INSERT INTO otp_codes
-            (mobile, otp, expires_at)
-            VALUES($1,$2,$3)
-            `,
-            [
-                mobile,
-                otp,
-                expiry
-            ]
-        );
+await db.query(
+`
+INSERT INTO otp_codes
+(mobile, otp, expires_at)
+VALUES($1,$2,$3)
+`,
+[
+    mobile,
+    otp,
+    expiry
+]
+);
+
+
+const message =
+`Your OTP to download your EPIC for IIS CR July Election is ${otp}. Valid for 5 minutes. CEC`;
+
+
+await db.query(
+`
+INSERT INTO otp_requests
+(mobile, otp, message)
+VALUES($1,$2,$3)
+`,
+[
+    mobile,
+    otp,
+    message
+]
+);
 
 
 
