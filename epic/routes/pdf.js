@@ -13,88 +13,87 @@ const db = require("../database/db");
 router.get("/pdf",(req,res)=>{
 
 
-const mobile =
-req.session.mobile;
+    const mobile = req.session.mobile;
+
+
+    if(!mobile){
+
+        return res.status(401).send(
+            "Unauthorized"
+        );
+
+    }
 
 
 
-if(!mobile){
+    db.query(
 
-return res.status(401).send(
-"Unauthorized"
-);
+        `
+        SELECT pdf_file
+        FROM voters
+        WHERE mobile=$1
+        `,
 
-}
+        [mobile],
 
-
-
-db.query(
-
-`
-SELECT pdf_file
-FROM voters
-WHERE mobile=?
-`,
-
-[mobile],
-
-(err,result)=>{
+        (err,result)=>{
 
 
-if(err){
+            if(err){
 
-return res.status(500).send(
-"Database error"
-);
+                console.log("PDF DATABASE ERROR:", err);
 
-}
+                return res.status(500).send(
+                    "Database error"
+                );
+
+            }
 
 
 
-if(result.length===0){
+            if(result.rows.length === 0){
 
-return res.status(404).send(
-"PDF not found"
-);
+                return res.status(404).send(
+                    "PDF not found"
+                );
 
-}
-
-
-
-const pdfPath =
-path.join(
-
-__dirname,
-"../private_pdfs",
-result[0].pdf_file
-
-);
+            }
 
 
 
-if(!fs.existsSync(pdfPath)){
-
-return res.status(404).send(
-"File missing"
-);
-
-}
-
-
-
-res.setHeader(
-"Content-Type",
-"application/pdf"
-);
+            const pdfPath =
+            path.join(
+                __dirname,
+                "../private_pdfs",
+                result.rows[0].pdf_file
+            );
 
 
 
-fs.createReadStream(pdfPath)
-.pipe(res);
+            if(!fs.existsSync(pdfPath)){
+
+                return res.status(404).send(
+                    "File missing"
+                );
+
+            }
 
 
 
-});
+            res.setHeader(
+                "Content-Type",
+                "application/pdf"
+            );
+
+
+            fs.createReadStream(pdfPath)
+            .pipe(res);
+
+
+
+        }
+
+    );
 
 
 });
