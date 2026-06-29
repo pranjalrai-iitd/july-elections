@@ -1,5 +1,8 @@
 const twilio = require("twilio");
 
+console.log("SID:", process.env.TWILIO_ACCOUNT_SID);
+console.log("MSG SID:", process.env.TWILIO_MESSAGING_SERVICE_SID);
+console.log("TOKEN EXISTS:", !!process.env.TWILIO_AUTH_TOKEN);
 
 const client = twilio(
     process.env.TWILIO_ACCOUNT_SID,
@@ -21,23 +24,33 @@ function formatMobile(number){
 
 
 
-async function sendOTP(mobile, otp){
+async function sendOTP(mobile, otp) {
 
     const formattedNumber = formatMobile(mobile);
 
+    try {
 
-    await client.messages.create({
+        await client.messages.create({
 
-        body:
-        `Your OTP to download your EPIC for IIS CR July Election is ${otp}. Valid for 5 minutes. CEC`,
+            body: `Your OTP to download your EPIC for IIS CR July Election is ${otp}. Valid for 5 minutes. CEC`,
 
-        messagingServiceSid:
-        process.env.TWILIO_MESSAGING_SERVICE_SID,
+            messagingServiceSid: process.env.TWILIO_MESSAGING_SERVICE_SID,
 
-        to:
-        formattedNumber
+            to: formattedNumber
 
-    });
+        });
+
+    } catch (err) {
+
+        console.log("========== TWILIO ERROR ==========");
+        console.log("Code:", err.code);
+        console.log("Status:", err.status);
+        console.log("Message:", err.message);
+        console.log("More Info:", err.moreInfo);
+        console.log("==================================");
+
+        throw err;
+    }
 
 }
 
